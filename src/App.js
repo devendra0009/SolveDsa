@@ -1,23 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
+// import Dropdown from './components/Dropdown';
+// import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import Neetcode from './components/Neetcode';
+import Blind from './components/Blind';
+import Leetcode from './components/Leetcode';
+import Striver from './components/Striver';
+import About from './components/About';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+      <Navbar/>
+      <Routes>
+        <Route exact path="/" element={<Home/>}/>  
+        <Route exact path="/about" element={<About/>}/>  
+        <Route exact path="/neetcode" element={<Neetcode/>}/>
+        <Route exact path="/blind" element={<Blind/>}/>
+        <Route exact path="/striver" element={<Striver/>}/>
+        <Route exact path="/leetcode" element={<Leetcode/>}/>
+      </Routes>
+
+      
+    {/* <div className="dropdown center">
+      <Dropdown/>
+    </div> */}
+    {/* <Footer/> */}
+    </Router>
     </div>
   );
 }
